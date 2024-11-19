@@ -1,4 +1,4 @@
-module github.com/nathanielvarona/pritunl-api-go
+module github.com/adhithia-irvan/pritunl-api-go
 
 go 1.22.2
 
