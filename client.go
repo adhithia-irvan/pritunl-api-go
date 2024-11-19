@@ -96,8 +96,13 @@ func (c *Client) AuthRequest(ctx context.Context, method, path string, data []by
 		req.Header.Set(k, v)
 	}
 
+	// Skip TLS
+	tr := &http.Transport{
+  	TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+  }
+
 	// Send the request
-	client := &http.Client{}
+	client := &http.Client{Transport: tr}
 	response, err := client.Do(req)
 	if err != nil {
 		return nil, err
